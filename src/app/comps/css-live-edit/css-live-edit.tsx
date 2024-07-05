@@ -1,10 +1,20 @@
 "use client";
 
-import React, { useRef } from "react";
+import hljs from "highlight.js";
+import React, { PropsWithChildren, useEffect, useRef } from "react";
 import styles from "./css-live-edit.module.css";
 
-export const CSSLiveEdit: React.FC = () => {
+interface CSSLiveEditProps extends PropsWithChildren {}
+
+export const CSSLiveEdit: React.FC<CSSLiveEditProps> = ({ children }) => {
   const editor = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    {
+      hljs.highlightAll();
+    }
+    [];
+  });
 
   const handleChange = () => {
     if (editor.current) {
@@ -21,13 +31,17 @@ export const CSSLiveEdit: React.FC = () => {
         <textarea
           ref={editor}
           onChange={handleChange}
-          className={styles.editor}
+          className="language-css"
         ></textarea>
       </div>
       <div className={`css-output ${styles.output}`}>
         <h2>Output</h2>
-        <p>This is a sample text to demonstrate the CSS effects.</p>
-        <p>You can add more HTML here to see how the CSS affects it.</p>
+        <pre>
+          <code className="language-html">
+            <p>bla</p>
+          </code>
+        </pre>
+        {children}
       </div>
     </>
   );
