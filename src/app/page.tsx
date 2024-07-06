@@ -1,12 +1,12 @@
-import { CSSLiveEdit } from "@/app/comps/css-live-edit/css-live-edit";
+import CodeMirrorEditor from "./comps/CodeMirrorEditor/CodeMirrorEditor";
 
 export default function Home() {
+  const initialCSS = `p { color: red; }`;
+  const htmlInput = { __html: "<p>This is a paragraph</p>" };
   return (
     <main>
-      <CSSLiveEdit>
-        <p>This is a sample text to demonstrate the CSS effects.</p>
-        <p>You can add more HTML here to see how the CSS affects it.</p>
-      </CSSLiveEdit>
+      <h1>CodeMirror Editor</h1>
+      <CodeMirrorEditor initialCSS={initialCSS} htmlTemplate={htmlInput} />
     </main>
   );
 }
