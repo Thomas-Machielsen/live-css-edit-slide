@@ -27,7 +27,7 @@ const CodeMirrorEditor = ({
               const styleTag = document.getElementById("styleTag");
               if (!styleTag) return;
 
-              styleTag.textContent = view.state.doc.toString();
+              styleTag.textContent = `.output ${view.state.doc.toString()}'`;
             }
           }),
         ],
@@ -44,7 +44,7 @@ const CodeMirrorEditor = ({
     <>
       <div ref={editorContainerRef}></div>
       <style id="styleTag"></style>
-      <div dangerouslySetInnerHTML={htmlTemplate}></div>
+      <div className="output" dangerouslySetInnerHTML={htmlTemplate}></div>
     </>
   );
 };

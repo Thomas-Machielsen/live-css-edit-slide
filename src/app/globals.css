@@ -4,3 +4,23 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
+main {
+  min-inline-size: 100vw;
+  min-block-size: 100vh;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.layout > * {
+  flex-basis: 360px;
+  flex-grow: 1;
+}
+
+.u-align-items-center {
+  align-items: center;
+}
